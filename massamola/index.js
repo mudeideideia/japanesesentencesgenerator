@@ -45,16 +45,16 @@ function drawSpring(spring_width, spring_length, number_of_vertices) {
 
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
-ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 
-ctx.width = canvas.width;
+function drawSystem(spring_length = 180, number_of_vertices = 6, spring_width = 24) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);   
+    ctx.width = canvas.width;
 
-const spring_width = 24;
-const spring_length = 180;
-const number_of_vertices = 6;
+    const spring_end = drawSpring(spring_width, spring_length, number_of_vertices)
+    const mass_radius = 30
+    spring_end.y += mass_radius
+    drawCircle(spring_end, mass_radius)
+}
 
-const spring_end = drawSpring(spring_width, spring_length, number_of_vertices)
-const mass_radius = 30
-spring_end.y += mass_radius
-drawCircle(spring_end, mass_radius)
+drawSystem()
