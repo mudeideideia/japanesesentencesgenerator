@@ -1,59 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
-<body onkeypress="EventHandler(event)" ontouchend='EventHandler({code:"Space"})'>
-<div>
-  <h1 class="center">Gerador de Frases Japas</h1>
-  <table class="center"></table>
-</div>
+<body style="background-color: #333;">
+    <link rel="stylesheet" href="/geradordefrases/index.html">
 </body>
-<script src="nouns.js"></script>
-<script src="verbs.js"></script>
-<script src="useful.js"></script>
-<script src="main.js"></script>
-<script>
-
-
-  const table = document.querySelector("table")
-  const sentences = randomSentence()
-  addLine(sentences.vectorJP)
-  addLine(sentences.vectorPt, 2)
-
-  function addLine(strings, collapse) {
-    const table = document.querySelector("table")
-    const line = document.createElement("tr")
-    strings.forEach(element => {
-      const column = document.createElement("td")
-      if (collapse) {
-        column.setAttribute("colspan", collapse)
-      }
-      column.innerText = element
-      line.append(column)
-    });
-    table.appendChild(line)
-  }
-
-  function EventHandler(event) {
-    if (event.code === "Space") {
-      const table = document.querySelector("table")
-      table.deleteRow(0)
-      table.deleteRow(0)
-      const sentences = randomSentence()
-      addLine(sentences.vectorJP)
-      addLine(sentences.vectorPt, 2)
-      addLine(strings)
-    }
-  }
-  function myFunction() {
-    document.querySelector(body).innerHTML += "Hello World";
-  }
-</script>
-
 </html>
