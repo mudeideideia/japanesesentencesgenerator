@@ -2,19 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
 
 <body style="display: flex; justify-content: center; align-items: center;
  background-color: #000000;">
-    <canvas id="myCanvas" width="600" height="600" style="border:1px solid #b5aa0a; background-color: #000;">
-    </canvas>
-    <script src="index.js"></script>
-    <script>
-    </script>
+	<canvas id="myCanvas" width="600" height="600" style="background-color: #000;">
+	</canvas>
+	<script src="index.js"></script>
+	<script>
+		var Module = {
+			onRuntimeInitialized: function () {
+				// float Displacement(float stiffness, float mass, float initial_position, float total_time)
+				const interval = 100;
+				let passed_time = 0
+				setInterval(() => {
+					const displacement = 200 + Math.trunc(Module.Displacement(2, 1, 80, passed_time))
+					drawSystem(displacement)
+					console.log(`passed time: ${(passed_time).toFixed(1)}, displacement: ${displacement}`);
+					passed_time += interval/1000
+				}, interval);
+			}
+		};
+	</script>
+	<script src="spring_mass.js"></script>
 </body>
 
 </html>
