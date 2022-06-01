@@ -20,7 +20,7 @@
 				const interval = 100;
 				let passed_time = 0
 				setInterval(() => {
-					const displacement = 200 + Math.trunc(Module.Displacement(2, 1, 80, passed_time))
+					const displacement = 180 + Math.trunc(Module.Displacement(2, 1, 80, passed_time))
 					drawSystem(displacement)
 					console.log(`passed time: ${(passed_time).toFixed(1)}, displacement: ${displacement}`);
 					passed_time += interval/1000
